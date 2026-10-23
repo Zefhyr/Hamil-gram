@@ -1,0 +1,779 @@
+[gd_scene load_steps=40 format=3 uid="uid://cbx8ws7hymbdh"]
+
+[ext_resource type="Script" path="res://GameScreen/game_screen.gd" id="1_3gxm0"]
+[ext_resource type="Texture2D" uid="uid://1pr5c40iij8r" path="res://Sprites/FUSEE.png" id="1_ef7ve"]
+[ext_resource type="Texture2D" uid="uid://be4h2a8ylxuuu" path="res://Sprites/STAR/STAR1.png" id="2_dgdb7"]
+[ext_resource type="Script" path="res://GameScreen/fusee.gd" id="2_iftbr"]
+[ext_resource type="Script" path="res://GameScreen/generateur_etoiles.gd" id="2_rkc7a"]
+[ext_resource type="Texture2D" uid="uid://65vb6bdbk2q4" path="res://Sprites/STAR/STAR2.png" id="4_1gnky"]
+[ext_resource type="Texture2D" uid="uid://cv3y3luqbypcg" path="res://Sprites/STAR/STAR3.png" id="5_4infk"]
+[ext_resource type="Texture2D" uid="uid://r6rl62s5bj62" path="res://Sprites/STAR/STAR4.png" id="6_rokae"]
+[ext_resource type="Texture2D" uid="uid://lf6q62ng5wlh" path="res://Sprites/STAR/STAR5.png" id="7_teanq"]
+[ext_resource type="Texture2D" uid="uid://cp2shvva7btbs" path="res://Sprites/STAR/STAR6.png" id="8_4rbef"]
+[ext_resource type="Texture2D" uid="uid://gqoexckbymon" path="res://Sprites/STAR/STAR7.png" id="9_jkly7"]
+[ext_resource type="Texture2D" uid="uid://b2ctpkj0f0on4" path="res://Sprites/STAR/STAR8.png" id="10_tx0n7"]
+[ext_resource type="Texture2D" uid="uid://oau6uqrxr5ll" path="res://Sprites/STAR/STAR9.png" id="11_bw606"]
+[ext_resource type="Texture2D" uid="uid://37owfr7jojxh" path="res://Sprites/STAR/STAR10.png" id="12_1nh6c"]
+[ext_resource type="FontFile" uid="uid://dy2jy5ya4yspa" path="res://Fonts/GNF.ttf" id="15_wa8yj"]
+[ext_resource type="Texture2D" uid="uid://fjvxmmfrwp74" path="res://Sprites/ACCELERATION.png" id="15_wpxdi"]
+[ext_resource type="Script" path="res://GameScreen/repere_sequences.gd" id="16_8cnsu"]
+[ext_resource type="StyleBox" uid="uid://bmg3ctic7q1or" path="res://GameScreen/boutondecommande.tres" id="16_ej5kn"]
+[ext_resource type="Texture2D" uid="uid://dhd8g7664w68y" path="res://Sprites/TurntotheRight.png" id="16_omk3d"]
+[ext_resource type="StyleBox" uid="uid://bs1nrhb1aukq2" path="res://GameScreen/hoverdecommande.tres" id="17_1syun"]
+[ext_resource type="Script" path="res://GameScreen/barre_temps.gd" id="17_73dlf"]
+[ext_resource type="Texture2D" uid="uid://bamc3inb07tjv" path="res://Sprites/TurntotheLeft.png" id="17_bi10m"]
+[ext_resource type="StyleBox" uid="uid://b6bgsf8puafdf" path="res://GameScreen/presseddecommande.tres" id="18_syd8e"]
+[ext_resource type="Script" path="res://GameScreen/lune.gd" id="21_1y2ta"]
+[ext_resource type="FontFile" uid="uid://bacykpslf3t5k" path="res://Fonts/joystix monospace.otf" id="21_x1g3m"]
+[ext_resource type="Texture2D" uid="uid://b64qmuwbrmfkw" path="res://Sprites/MOON.png" id="22_lsrqo"]
+[ext_resource type="Texture2D" uid="uid://dquwuf3g3j828" path="res://Sprites/HAMILtriste.png" id="22_njaf4"]
+[ext_resource type="Texture2D" uid="uid://c3t50rhnwi2vn" path="res://Sprites/HAMILhappy.png" id="23_6fb71"]
+[ext_resource type="Script" path="res://GameScreen/generateur_obstacles.gd" id="24_o3leb"]
+[ext_resource type="Texture2D" uid="uid://cgtc0q6eh20vb" path="res://Sprites/HAMILsurprised.png" id="24_p2hhb"]
+[ext_resource type="Texture2D" uid="uid://cfof5q12haceo" path="res://Sprites/OBJ/BOOM.png" id="26_v46yf"]
+[ext_resource type="Texture2D" uid="uid://cghwq54nouhco" path="res://Sprites/HAMILamazed.png" id="28_5j4v4"]
+[ext_resource type="AudioStream" uid="uid://y04fwxeco52f" path="res://Musique/Failing a Thousand Times V2.wav" id="33_4g586"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8y0wy"]
+size = Vector2(53111, 12487)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fr41a"]
+bg_color = Color(0.54902, 0.301961, 0.301961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.639216, 0.823529, 0.678431, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agiw0"]
+bg_color = Color(0.0666667, 0.0823529, 0.0823529, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.494118, 0.545098, 0.517647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oixsd"]
+bg_color = Color(0.101961, 0.12549, 0.12549, 1)
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_307va"]
+bg_color = Color(0.54902, 0.301961, 0.301961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.639216, 0.823529, 0.678431, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uvsi3"]
+radius = 992.0
+
+[node name="GameScreen" type="Node2D"]
+script = ExtResource("1_3gxm0")
+
+[node name="FondEtoile" type="ParallaxBackground" parent="."]
+
+[node name="EtoilesLointaines" type="ParallaxLayer" parent="FondEtoile"]
+motion_scale = Vector2(0.05, 0.05)
+script = ExtResource("2_rkc7a")
+nombre_etoiles = 1800
+taille_base = 0.1
+modeles_etoiles = Array[Texture2D]([ExtResource("2_dgdb7"), ExtResource("4_1gnky"), ExtResource("5_4infk"), ExtResource("6_rokae"), ExtResource("7_teanq"), ExtResource("8_4rbef"), ExtResource("9_jkly7"), ExtResource("10_tx0n7"), ExtResource("11_bw606"), ExtResource("12_1nh6c")])
+
+[node name="EtoilesMoyennes" type="ParallaxLayer" parent="FondEtoile"]
+motion_scale = Vector2(0.15, 0.15)
+script = ExtResource("2_rkc7a")
+nombre_etoiles = 750
+modeles_etoiles = Array[Texture2D]([ExtResource("2_dgdb7"), ExtResource("4_1gnky"), ExtResource("5_4infk"), ExtResource("6_rokae"), ExtResource("7_teanq"), ExtResource("8_4rbef"), ExtResource("9_jkly7"), ExtResource("10_tx0n7"), ExtResource("11_bw606"), ExtResource("12_1nh6c")])
+
+[node name="EtoilesProches" type="ParallaxLayer" parent="FondEtoile"]
+motion_scale = Vector2(0.25, 0.25)
+script = ExtResource("2_rkc7a")
+nombre_etoiles = 120
+taille_base = 0.3
+modeles_etoiles = Array[Texture2D]([ExtResource("2_dgdb7"), ExtResource("4_1gnky"), ExtResource("5_4infk"), ExtResource("6_rokae"), ExtResource("7_teanq"), ExtResource("8_4rbef"), ExtResource("9_jkly7"), ExtResource("10_tx0n7"), ExtResource("11_bw606"), ExtResource("12_1nh6c")])
+
+[node name="GROUND2" type="StaticBody2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="GROUND2"]
+position = Vector2(2801.28, 471.711)
+scale = Vector2(44.9498, 64.2899)
+color = Color(0.431373, 0.262745, 0.188235, 1)
+polygon = PackedVector2Array(-2.20859, -7.24392, 590.096, -7.29059, 585.506, 94.6406, 590, 189.7, 10.0347, 201.125, -593.001, 188.6, -590.292, 94.6406, -594.002, -7.29059, -52.8651, -7.19726)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GROUND2"]
+position = Vector2(2647.5, 6255.5)
+shape = SubResource("RectangleShape2D_8y0wy")
+
+[node name="FUSEE" type="RigidBody2D" parent="."]
+position = Vector2(0, -12)
+gravity_scale = 0.5
+script = ExtResource("2_iftbr")
+
+[node name="EffetPoussee" type="Sprite2D" parent="FUSEE"]
+position = Vector2(2, -9)
+texture = ExtResource("15_wpxdi")
+
+[node name="EffetGauche" type="Sprite2D" parent="FUSEE"]
+position = Vector2(3, -15)
+texture = ExtResource("17_bi10m")
+
+[node name="EffetDroite" type="Sprite2D" parent="FUSEE"]
+position = Vector2(1, -16)
+texture = ExtResource("16_omk3d")
+
+[node name="Sprite2D" type="Sprite2D" parent="FUSEE"]
+position = Vector2(2, -16)
+texture = ExtResource("1_ef7ve")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FUSEE"]
+polygon = PackedVector2Array(0, -41, -11, -21, -13, -1, -10, 1, -11, 11, 12, 11, 11, 1, 12, 0, 11, -22)
+
+[node name="Camera2D" type="Camera2D" parent="FUSEE"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="UI"]
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_force_pass_scroll_events = false
+
+[node name="Console" type="HBoxContainer" parent="UI/PanelContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="Commandes" type="VBoxContainer" parent="UI/PanelContainer/Console"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PanelContainer/Console/Commandes"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LANCEMENT" type="Button" parent="UI/PanelContainer/Console/Commandes"]
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("16_ej5kn")
+theme_override_styles/hover = ExtResource("17_1syun")
+theme_override_styles/pressed = ExtResource("18_syd8e")
+text = "Lancement"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="UI/PanelContainer/Console/Commandes"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AjouterSequence" type="Button" parent="UI/PanelContainer/Console/Commandes"]
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("16_ej5kn")
+theme_override_styles/hover = ExtResource("17_1syun")
+theme_override_styles/pressed = ExtResource("18_syd8e")
+text = "Séquence +"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="UI/PanelContainer/Console/Commandes"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Reprogrammer" type="Button" parent="UI/PanelContainer/Console/Commandes"]
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("16_ej5kn")
+theme_override_styles/hover = ExtResource("17_1syun")
+theme_override_styles/pressed = ExtResource("18_syd8e")
+disabled = true
+text = "Hamilt-Off"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="UI/PanelContainer/Console/Commandes"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Reinit" type="Button" parent="UI/PanelContainer/Console/Commandes"]
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("16_ej5kn")
+theme_override_styles/hover = ExtResource("17_1syun")
+theme_override_styles/pressed = ExtResource("18_syd8e")
+text = "Réinitialiser"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="UI/PanelContainer/Console/Commandes"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="QUITTER" type="Button" parent="UI/PanelContainer/Console/Commandes"]
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("16_ej5kn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fr41a")
+theme_override_styles/pressed = ExtResource("18_syd8e")
+text = "Abandonner"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/PanelContainer/Console/Commandes"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ZoneProgramme" type="VBoxContainer" parent="UI/PanelContainer/Console"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BarresTemps" type="VBoxContainer" parent="UI/PanelContainer/Console/ZoneProgramme"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="RepereSequences" type="Control" parent="UI/PanelContainer/Console/ZoneProgramme/BarresTemps"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("16_8cnsu")
+
+[node name="BarreTemps" type="Control" parent="UI/PanelContainer/Console/ZoneProgramme/BarresTemps"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("17_73dlf")
+
+[node name="Carrousel" type="ScrollContainer" parent="UI/PanelContainer/Console/ZoneProgramme"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+size_flags_horizontal = 3
+vertical_scroll_mode = 0
+
+[node name="ListeSequences" type="HBoxContainer" parent="UI/PanelContainer/Console/ZoneProgramme/Carrousel"]
+layout_mode = 2
+
+[node name="InfosVol" type="VBoxContainer" parent="UI/PanelContainer/Console"]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/PanelContainer/Console/InfosVol"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TempsVol" type="Label" parent="UI/PanelContainer/Console/InfosVol"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 20
+text = "TEMPS
+00:00.0"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="UI/PanelContainer/Console/InfosVol"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NbReprogrammations" type="Label" parent="UI/PanelContainer/Console/InfosVol"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 20
+text = "HAMILTON-ON
+0"
+horizontal_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="UI/PanelContainer/Console/InfosVol"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NbReinitialisations" type="Label" parent="UI/PanelContainer/Console/InfosVol"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 20
+text = "Réinitialisation
+0"
+horizontal_alignment = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="UI/PanelContainer/Console/InfosVol"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RecentrerFusee" type="TextureButton" parent="UI/PanelContainer/Console/InfosVol"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("1_ef7ve")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PanelContainer/Console/InfosVol"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GameOver" type="PanelContainer" parent="UI"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -283.0
+offset_right = 300.0
+offset_bottom = 283.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_agiw0")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/GameOver"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/GameOver/MarginContainer"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Titre" type="Label" parent="UI/GameOver/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.94902, 0.929412, 0.929412, 1)
+theme_override_fonts/font = ExtResource("21_x1g3m")
+theme_override_font_sizes/font_size = 60
+text = "* LANDING *
+FAILED..."
+horizontal_alignment = 1
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="UI/GameOver/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/GameOver/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/GameOver/MarginContainer/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(116, 116)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("22_njaf4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Texte" type="Label" parent="UI/GameOver/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_oixsd")
+text = "HAMIL : Oh non ! Le programme a échoué !
+Mais nous y étions presque !
+Heureusement, ce n'est qu'un jeu !
+A l'époque, il n'y avait pas de seconde chance. Et nous le savions..."
+autowrap_mode = 3
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="UI/GameOver/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Reessayer" type="Button" parent="UI/GameOver/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("16_ej5kn")
+theme_override_styles/hover = ExtResource("17_1syun")
+theme_override_styles/pressed = ExtResource("18_syd8e")
+text = "Réessayer"
+
+[node name="Sauvegarder et quitter" type="Button" parent="UI/GameOver/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("16_ej5kn")
+theme_override_styles/hover = ExtResource("17_1syun")
+theme_override_styles/pressed = ExtResource("18_syd8e")
+text = "Sauvegarder et quitter"
+
+[node name="Abandonner" type="Button" parent="UI/GameOver/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("16_ej5kn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_307va")
+theme_override_styles/pressed = ExtResource("18_syd8e")
+text = "Abandonner"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="UI/GameOver/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Victory" type="PanelContainer" parent="UI"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -283.0
+offset_right = 300.0
+offset_bottom = 283.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_agiw0")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Victory"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Victory/MarginContainer"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Titre" type="Label" parent="UI/Victory/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.94902, 0.929412, 0.929412, 1)
+theme_override_fonts/font = ExtResource("21_x1g3m")
+theme_override_font_sizes/font_size = 60
+text = "* landing *
+! successful !"
+horizontal_alignment = 1
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="UI/Victory/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Victory/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Victory/MarginContainer/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(116, 116)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("23_6fb71")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Texte" type="Label" parent="UI/Victory/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_oixsd")
+text = "HAMIL : Félicitations, à force de persévérance, tu as réussi !
+Maintenant, toi aussi, tu peux le dire. Tu peux dire que tu n'avais pas d'autre choix que d'être un pionnier."
+autowrap_mode = 3
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="UI/Victory/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Reessayer" type="Button" parent="UI/Victory/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("16_ej5kn")
+theme_override_styles/hover = ExtResource("17_1syun")
+theme_override_styles/pressed = ExtResource("18_syd8e")
+text = "Réessayer"
+
+[node name="Sauvegarder et quitter" type="Button" parent="UI/Victory/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("16_ej5kn")
+theme_override_styles/hover = ExtResource("17_1syun")
+theme_override_styles/pressed = ExtResource("18_syd8e")
+text = "Sauvegarder et quitter"
+
+[node name="Abandonner" type="Button" parent="UI/Victory/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("16_ej5kn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_307va")
+theme_override_styles/pressed = ExtResource("18_syd8e")
+text = "Abandonner"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="UI/Victory/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VictoireParfaite" type="PanelContainer" parent="UI"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -283.0
+offset_right = 300.0
+offset_bottom = 283.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_agiw0")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/VictoireParfaite"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/VictoireParfaite/MarginContainer"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Titre" type="Label" parent="UI/VictoireParfaite/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.94902, 0.929412, 0.929412, 1)
+theme_override_fonts/font = ExtResource("21_x1g3m")
+theme_override_font_sizes/font_size = 60
+text = "* landing *
+! successful !"
+horizontal_alignment = 1
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="UI/VictoireParfaite/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/VictoireParfaite/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/VictoireParfaite/MarginContainer/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(116, 116)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("24_p2hhb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Texte" type="Label" parent="UI/VictoireParfaite/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_oixsd")
+text = "HAMIL : Félicitations, tu mérites de faire partie des meilleurs ! 
+Il fallait trouver le chemin, et tu l'as trouvé !
+Tu peux désormais te considérer comme un véritable conquérant lunaire !
+"
+autowrap_mode = 3
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="UI/VictoireParfaite/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Reessayer" type="Button" parent="UI/VictoireParfaite/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("16_ej5kn")
+theme_override_styles/hover = ExtResource("17_1syun")
+theme_override_styles/pressed = ExtResource("18_syd8e")
+text = "Réessayer"
+
+[node name="Sauvegarder et quitter" type="Button" parent="UI/VictoireParfaite/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("16_ej5kn")
+theme_override_styles/hover = ExtResource("17_1syun")
+theme_override_styles/pressed = ExtResource("18_syd8e")
+text = "Sauvegarder et quitter"
+
+[node name="Abandonner" type="Button" parent="UI/VictoireParfaite/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("16_ej5kn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_307va")
+theme_override_styles/pressed = ExtResource("18_syd8e")
+text = "Abandonner"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="UI/VictoireParfaite/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VictoireUltime" type="PanelContainer" parent="UI"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -283.0
+offset_right = 300.0
+offset_bottom = 283.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_agiw0")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/VictoireUltime"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/VictoireUltime/MarginContainer"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Titre" type="Label" parent="UI/VictoireUltime/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.94902, 0.929412, 0.929412, 1)
+theme_override_fonts/font = ExtResource("21_x1g3m")
+theme_override_font_sizes/font_size = 60
+text = "* landing *
+! successful !"
+horizontal_alignment = 1
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="UI/VictoireUltime/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/VictoireUltime/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/VictoireUltime/MarginContainer/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(116, 116)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("28_5j4v4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Texte" type="Label" parent="UI/VictoireUltime/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_oixsd")
+text = "HAMIL : Félicitations, tu n'as pas d'égal ! Si je n'existais pas, c'est toi qu'on aurait pris pour Appolo 11 !
+Tu mérites le titre d'Héritier d'Hamil !
+Sans vouloir me vanter, on ne fait pas mieux...
+"
+autowrap_mode = 3
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="UI/VictoireUltime/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Reessayer" type="Button" parent="UI/VictoireUltime/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("16_ej5kn")
+theme_override_styles/hover = ExtResource("17_1syun")
+theme_override_styles/pressed = ExtResource("18_syd8e")
+text = "Réessayer"
+
+[node name="Sauvegarder et quitter" type="Button" parent="UI/VictoireUltime/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("16_ej5kn")
+theme_override_styles/hover = ExtResource("17_1syun")
+theme_override_styles/pressed = ExtResource("18_syd8e")
+text = "Sauvegarder et quitter"
+
+[node name="Abandonner" type="Button" parent="UI/VictoireUltime/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_wa8yj")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("16_ej5kn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_307va")
+theme_override_styles/pressed = ExtResource("18_syd8e")
+text = "Abandonner"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="UI/VictoireUltime/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Lune" type="Area2D" parent="."]
+script = ExtResource("21_1y2ta")
+altitude_lune = 15000.0
+variation_horizontale = 3000.0
+variation_verticale = 1000.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Lune"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("22_lsrqo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lune"]
+shape = SubResource("CircleShape2D_uvsi3")
+one_way_collision_margin = 0.0
+
+[node name="GénérateurObstacles" type="Node2D" parent="."]
+script = ExtResource("24_o3leb")
+
+[node name="Explosion" type="Sprite2D" parent="."]
+visible = false
+z_index = 10
+texture_filter = 1
+texture = ExtResource("26_v46yf")
+
+[node name="MusiqueJeu" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("33_4g586")
+volume_db = -15.0
+autoplay = true
+
+[connection signal="pressed" from="UI/PanelContainer/Console/Commandes/LANCEMENT" to="." method="_on_lancement_pressed"]
+[connection signal="pressed" from="UI/PanelContainer/Console/Commandes/AjouterSequence" to="." method="_on_ajouter_sequence_pressed"]
+[connection signal="pressed" from="UI/PanelContainer/Console/Commandes/Reprogrammer" to="." method="_on_reprogrammer_pressed"]
+[connection signal="pressed" from="UI/PanelContainer/Console/Commandes/Reinit" to="." method="_on_reinit_pressed"]
+[connection signal="pressed" from="UI/PanelContainer/Console/Commandes/QUITTER" to="." method="_on_quitter_pressed"]
+[connection signal="mouse_entered" from="UI/PanelContainer/Console/InfosVol/RecentrerFusee" to="." method="_on_recentrer_fusee_mouse_entered"]
+[connection signal="mouse_exited" from="UI/PanelContainer/Console/InfosVol/RecentrerFusee" to="." method="_on_recentrer_fusee_mouse_exited"]
+[connection signal="pressed" from="UI/PanelContainer/Console/InfosVol/RecentrerFusee" to="." method="_on_recentrer_fusee_pressed"]
+[connection signal="pressed" from="UI/GameOver/MarginContainer/VBoxContainer/Reessayer" to="." method="_on_reessayer_pressed"]
+[connection signal="pressed" from="UI/GameOver/MarginContainer/VBoxContainer/Abandonner" to="." method="_on_abandonner_pressed"]
+[connection signal="pressed" from="UI/Victory/MarginContainer/VBoxContainer/Reessayer" to="." method="_on_reessayer_pressed"]
+[connection signal="pressed" from="UI/Victory/MarginContainer/VBoxContainer/Abandonner" to="." method="_on_abandonner_pressed"]
+[connection signal="pressed" from="UI/VictoireParfaite/MarginContainer/VBoxContainer/Reessayer" to="." method="_on_reessayer_pressed"]
+[connection signal="pressed" from="UI/VictoireParfaite/MarginContainer/VBoxContainer/Abandonner" to="." method="_on_abandonner_pressed"]
+[connection signal="pressed" from="UI/VictoireUltime/MarginContainer/VBoxContainer/Reessayer" to="." method="_on_reessayer_pressed"]
+[connection signal="pressed" from="UI/VictoireUltime/MarginContainer/VBoxContainer/Abandonner" to="." method="_on_abandonner_pressed"]
+[connection signal="body_entered" from="Lune" to="." method="_on_lune_body_entered"]

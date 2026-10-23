@@ -1,0 +1,159 @@
+[gd_scene load_steps=8 format=3 uid="uid://do6pi6eb5brg1"]
+
+[ext_resource type="Texture2D" uid="uid://6qc87d4he8c4" path="res://Sprites/EncartSequence.png" id="1_hp76e"]
+[ext_resource type="Script" path="res://GameScreen/sequence.gd" id="1_uxtpv"]
+[ext_resource type="FontFile" uid="uid://bacykpslf3t5k" path="res://Fonts/joystix monospace.otf" id="3_qmklm"]
+[ext_resource type="FontFile" uid="uid://dy2jy5ya4yspa" path="res://Fonts/GNF.ttf" id="4_oftpr"]
+[ext_resource type="Theme" uid="uid://dvr8k18ypneg5" path="res://GameScreen/SpinThemeMoon.tres" id="5_ghuqv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t3nr5"]
+content_margin_left = 30.0
+content_margin_top = 30.0
+content_margin_right = 20.0
+content_margin_bottom = 30.0
+texture = ExtResource("1_hp76e")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hlgdn"]
+bg_color = Color(0.270588, 0.301961, 0.282353, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.145098, 0.176471, 0.156863, 1)
+
+[node name="Sequence" type="PanelContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 220)
+theme_override_styles/panel = SubResource("StyleBoxTexture_t3nr5")
+script = ExtResource("1_uxtpv")
+
+[node name="Contenu" type="VBoxContainer" parent="."]
+texture_filter = 2
+layout_mode = 2
+
+[node name="Entete" type="Control" parent="Contenu"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Titre" type="Label" parent="Contenu/Entete"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.145098, 0.145098, 0.145098, 1)
+theme_override_fonts/font = ExtResource("3_qmklm")
+theme_override_font_sizes/font_size = 18
+text = "SEQUENCE"
+vertical_alignment = 1
+
+[node name="Supprimer" type="Button" parent="Contenu/Entete"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -16.0
+offset_right = -15.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("3_qmklm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hlgdn")
+text = "X
+"
+icon_alignment = 1
+
+[node name="DureeSequence" type="HBoxContainer" parent="Contenu"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="Contenu/DureeSequence"]
+custom_minimum_size = Vector2(127, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.145098, 0.145098, 0.145098, 1)
+theme_override_fonts/font = ExtResource("4_oftpr")
+text = "Durée totale (s) :"
+
+[node name="TempsSequence" type="SpinBox" parent="Contenu/DureeSequence"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_ghuqv")
+max_value = 10.0
+step = 0.1
+value = 5.0
+alignment = 1
+suffix = "s"
+
+[node name="Parametres" type="GridContainer" parent="Contenu"]
+layout_mode = 2
+columns = 2
+
+[node name="LabelPuissance" type="Label" parent="Contenu/Parametres"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.145098, 0.145098, 0.145098, 1)
+theme_override_fonts/font = ExtResource("4_oftpr")
+text = "Puissance (%) :"
+
+[node name="SpinPuissance" type="SpinBox" parent="Contenu/Parametres"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_ghuqv")
+step = 0.1
+alignment = 1
+suffix = "%"
+
+[node name="LabelPoussée" type="Label" parent="Contenu/Parametres"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.145098, 0.145098, 0.145098, 1)
+theme_override_fonts/font = ExtResource("4_oftpr")
+text = "Poussée (s) :"
+
+[node name="SpinPoussée" type="SpinBox" parent="Contenu/Parametres"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_ghuqv")
+max_value = 5.0
+step = 0.1
+alignment = 1
+suffix = "s"
+
+[node name="LabelRotation" type="Label" parent="Contenu/Parametres"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.145098, 0.145098, 0.145098, 1)
+theme_override_fonts/font = ExtResource("4_oftpr")
+text = "Rotation (°) :"
+
+[node name="SpinRotation" type="SpinBox" parent="Contenu/Parametres"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_ghuqv")
+min_value = -90.0
+max_value = 90.0
+alignment = 1
+suffix = "°"
+
+[node name="LabelVirage" type="Label" parent="Contenu/Parametres"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.145098, 0.145098, 0.145098, 1)
+theme_override_fonts/font = ExtResource("4_oftpr")
+text = "Virage (s) :"
+
+[node name="SpinVirage" type="SpinBox" parent="Contenu/Parametres"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_ghuqv")
+max_value = 5.0
+step = 0.1
+alignment = 1
+suffix = "s"
+
+[connection signal="pressed" from="Contenu/Entete/Supprimer" to="." method="_on_supprimer_pressed"]
+[connection signal="value_changed" from="Contenu/DureeSequence/TempsSequence" to="." method="_on_temps_sequence_value_changed"]
